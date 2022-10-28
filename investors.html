@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Costs</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+		}
+    function newInvestor() { showform('insert'); }
+    function updateInvestor(pid) { showform('update'); }
+    function deleteInvestor(pid) { showform ('delete'); }
+    function browseInvestor() { showform ('browse'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseInvestor()">
+<h1>Investors</h1>
+
+[ <a href="customers.html">Cutomers</a> | <a href="houses.html">Houses</a> | <a href="costs.html">Costs</a>| <a href="houses.html">Houses</a> | <a href="employees.html">Employees</a> |Tables Overview | ]
+
+<div id="browse">
+<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#" onClick="newInvestor()">New</a></th>
+    <th></th>
+    <th>ID</th>
+    <th>CostDescription</th>
+    <th>InvestorBirthday</th>
+    <th>InvestAmount</th>
+    <th>InvestName</th>
+    <th>Profit</th>
+    <th>ProfitName</th>
+    
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateInvestor('this.InvestorID')">Edit</a></td>
+    <td><a href="#" onclick="deleteInvestor('this.InvestornID')">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Alois Glienke</td>
+    <td>01-01-1952</td>
+    <td>11.000$</td>
+    <td>Payback</td>
+    <td>22.000$</td>
+    <td>House Selling</td>
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateInvestor('this.InvestorID')">Edit</a></td>
+    <td><a href="#" onclick="deleteInvestor('this.InvestorID')">Delete</a></td>
+    <td align="right" >2</td>
+    <td >Martin Wojenek</td>
+    <td>01-01-1952</td>
+    <td>44.000$</td>
+    <td>Payback</td>
+    <td>22.000$</td>
+    <td>House Selling</td>
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateInvestor('this.InvestorID')">Edit</a></td>
+    <td><a href="#" onclick="deleteInvestor('this.InvestorID')">Delete</a></td>
+    <td align="right" >3</td>
+    <td>Peter Knorr</td>
+    <td>01-01-1952</td>
+    <td>61.000$</td>
+    <td>Cash</td>
+    <td>22.000$</td>
+    <td>House Selling</td>
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateInvestor('this.InvestorID')">Edit</a></td>
+    <td><a href="#" onclick="deleteInvestor('this.InvestorID')">Delete</a></td>
+    <td align="right" >4</td>
+    <td >Marko Stefan
+    <td>01-01-1952</td>
+    <td>22.000$</td>
+    <td>Bank</td>
+    <td>22.000$</td>
+    <td>House Selling</td>
+
+  
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addInvestor">
+        <legend><strong>Add Investor</strong></legend>
+          <fieldset class="fields">
+            <label> InvestorName</label> <input type="text" name="InvestorName">
+            <label> InvestorBirthday </label> <input type="date" name="InvestorBirthday">
+            <label>InvestAmount </label> <input type="number" name="InvestAmount">
+            <label>InvestName </label> <input type="text" name="InvestName">
+            <label> ProfitName </label> <select name="ProfitName">
+            	<option value="0">&nbsp;</option>
+              <option value="1" selected>House Selling</option>
+              <option value="2">Dividende</option>
+              <option value="3">Operating Profit</option>
+                </select>
+            
+      </fieldset>
+          <input class="btn" type="submit" id="addInvestor" value="Add Investor">
+          <input class="btn" type="button" value="cancel" onClick="browseInvestor()">
+	</form> 
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateInvestor">
+        <legend><strong>Update Investor</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="InvestorID" id="updateInvestorID" value="1">
+          <label> ID: </label> 1
+            <label> InvestorName </label> <input type="text" name="Alois" value="Alois Glienke">
+            <label> InvestAmount </label> <input type="number" name="InvestAmount" value="22.000">
+            <label> ProfitName </label> <select name="ProfitName">
+            	<option value="0">&nbsp;</option>
+                <option value="1" selected>House Selling</option>
+                <option value="2">Dividende</option>
+                <option value="3">Operating Profit</option>
+                </select>
+            
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveInvestor" value="Save Update Investor">
+          <input class="btn" type="button" value="cancel" onClick="browseInvestor()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteInvestor">
+      <legend><strong>Delete Investor</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="InvestorID" id="deleteInvestorID" value="1">
+          <label><strong>ID:</strong></label> 1
+            <label> <strong>Name</strong> </label> Alois Glienke
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteInvestor" value="Delete Investor">
+          <input class="btn" type="button" value="cancel" onClick="browseInvestor()">
+  </form> 
+</div><!-- delete -->
+
+</body>
+</html>

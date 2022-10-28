@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Customers</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Employees</h1>
+
+[ <a href="investors.html">Investors</a> | <a href="houses.html">Houses</a> | <a href="costs.html">Costs</a>| <a href="customers.html">Customers</a> |Tables Overview | ]
+<div id="browse" style="display: block">
+<p><strong>Browse Employee</strong></p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#">New</a></th>
+    <th></th>
+    <th>ID</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>EmployeeSalary</th>
+    <th>EmployeeBirthday  </th>
+    <th>EmployeeInsurance</th>
+    <th>EmployeedDate</th>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Juan</td>
+    <td >Mueller</td>
+    <td align="center">$600</td>
+    <td >07-22-2055</td>
+    <td align="center">yes</td>
+    <td >02-22-2024</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Sergio</td>
+    <td >Mueller</td>
+    <td align="center">$700</td>
+    <td >09-22-1988</td>
+    <td align="center">no</td>
+    <td >02-30-2022</td>
+  </tr>
+  <tr>
+    <td><a href="#">Edit</a></td>
+    <td><a href="#">Delete</a></td>
+    <td align="right" >1</td>
+    <td >Mustafa</td>
+    <td >Mueller</td>
+    <td align="center">$800</td>
+    <td >02-22-2022</td>
+    <td align="center">yes</td>
+    <td >02-22-2022</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert" style="display: block">
+    <form id="addCustomer">
+        <legend><strong>Add Employee</strong></legend>
+          <fieldset class="fields">
+            <label> FirstName </label> <input type="text" name="FirstName">
+            <label> LastName </label> <input type="text" name="LastName">
+            <label> EmployeeSalary </label> <input type="number" name="EmployeeSalary">
+            <label> EmployeeBirthday </label> <input type="date" name="EmployeeBirthday">
+            <label> EmployeeInsurance </label> <input type="radio" name="yes" value="1"/> yes
+            <input type="radio" name="yes" value="2"/> no 
+            <label> Employeed Date</label> <input type="date" name="EmployeedDate">
+            
+      
+          </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add a Employee">
+          <input class="btn" type="button" value="cancel">
+	</form> <!--add new planet-->
+</div><!-- insert -->
+
+<p>&nbsp;</p>
+<div id="update" style="display: block">
+  <form id="updateEmployee">
+      <legend><strong>Update Employee</strong></legend>
+          <fieldset class="fields">
+            <label> EmployeeSalary </label> <input type="number" name="EmployeeSalary">
+            <label> EmployeeInsurance </label> <input type="radio" name="yes" value="1"/> yes
+            <input type="radio" name="yes" value="2"/> no 
+            
+    </fieldset>
+    <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <label>ID:</label> 1
+            <label> Name </label> Jan Mueller
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+          <input class="btn" type="button" value="cancel" >
+  </form> 
+</div><!-- delete -->
+</body>
+</html>

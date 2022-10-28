@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>Houses</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+		}
+    function newHouse() { showform('insert'); }
+    function updateHouse(pid) { showform('update'); }
+    function deleteHouse(pid) { showform ('delete'); }
+    function browseHouse() { showform ('browse'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseHouse()">
+<h1>Houses</h1>
+
+[ <a href="Customers.html">Cutomers</a> | <a href="investors.html">Investors</a> | <a href="costs.html">Costs</a>| <a href="customers.html">Customers</a> | <a href="employees.html">Employees</a> |Tables Overview | ]
+
+<div id="browse">
+<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#" onClick="newHouse()">New</a></th>
+    <th></th>
+    <th>ID</th>
+    <th>HouseSize</th>
+    <th>PatioUpgrade</th>
+    <th>GarageUpgrade</th>
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateHouse('this.HouseID')">Edit</a></td>
+    <td><a href="#" onclick="deleteHouse('this.HousenID')">Delete</a></td>
+    <td align="right" >1</td>
+    <td >200</td>
+    <td>yes</td>
+    <td>no</td>
+  
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateHouse('this.HouserID')">Edit</a></td>
+    <td><a href="#" onclick="deleteHouse('this.HouseID')">Delete</a></td>
+    <td align="right" >2</td>
+    <td >200</td>
+    <td>yes</td>
+    <td>no</td>
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateHouse('this.HouseID')">Edit</a></td>
+    <td><a href="#" onclick="deleteHouse('this.HouserID')">Delete</a></td>
+    <td align="right" >3</td>
+    <td >150</td>
+    <td>yes</td>
+    <td>no</td>
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updateHouse('this.HouseID')">Edit</a></td>
+    <td><a href="#" onclick="deleteHouse('this.HouseID')">Delete</a></td>
+    <td align="right" >4</td>
+    <td >100</td>
+    <td>yes</td>
+    <td>yes</td>
+
+  
+  </tr>
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addHouse">
+        <legend><strong>Add House</strong></legend>
+          <fieldset class="fields">
+            <label> HouseSize </label> <select name="ProfitName">
+            	<option value="0">&nbsp;</option>
+              <option value="1" selected>200</option>
+              <option value="2">150</option>
+              <option value="3">100</option>
+              </label>
+             <select>
+
+                  <label > PatioUpgrade </label> 
+                  <input type="radio" name="yes" value="1"/> yes
+                  <input type="radio" name="yes" value="2"/> no 
+               </select>
+
+              <label > Garage Upgrade  </label> 
+                  <input type="radio" name="yes" value="1"/> yes
+                  <input type="radio" name="yes" value="2"/> no 
+               
+      </fieldset>
+          <input class="btn" type="submit" id="addHouse" value="Add House">
+          <input class="btn" type="button" value="cancel" onClick="browseHouse()">
+	</form> 
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateHouse">
+        <legend><strong>Update House</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="HouseID" id="updateHouseID" value="1">
+          <label> ID: </label> 1
+          
+
+            <label > PatioUpgrade </label> 
+            <input type="radio" name="yes" value="1"/> yes
+            <input type="radio" name="yes" value="2"/> no 
+        
+
+        <label > Garage Upgrade  </label> 
+            <input type="radio" name="yes" value="1"/> yes 
+            <input type="radio" name="yes" value="2"/> no 
+            
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveHouse" value="Save Update House">
+          <input class="btn" type="button" value="cancel" onClick="browseHouse()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>Costs</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+			}
+		}
+    function newCost() { showform('insert'); }
+    function updateCost(pid) { showform('update'); }
+    function deleteCost(pid) { showform ('delete'); }
+    function browseCost() { showform ('browse'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseInvestors()">
+<h1>Costs</h1>
+
+[ <a href="customers.html">Customers</a> | <a href="houses.html">Houses</a> | <a href="investors.html">Investors
+</a>| <a  | <a href="employees.html">Employees</a> |Tables Overview | ]
+
+<div id="browse">
+<p><a href="#" onClick="showAll()">Display all forms</a> </p>
+<table border="1" cellpadding="5">
+  <tr>
+    <th><a href="#" onClick="newPerson()">New</a></th>
+    <th></th>
+    <th>ID</th>
+    <th>CostDescription</th>
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <td align="right" >1</td>
+    <td >CustomerCosts</td>
+    
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <td align="right" >2</td>
+    <td >InvestorCosts</td>
+    
+   
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <td align="right" >3</td>
+    <td>EmployeeCosts</td>
+
+  
+  </tr>
+  <tr>
+    <td><a href="#" onClick="updatePerson('this.personID')">Edit</a></td>
+    <td><a href="#" onclick="deletePerson('this.personID')">Delete</a></td>
+    <td align="right" >4</td>
+    <td >HouseCosts</tr>
+
+
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addCosts">
+        <legend><strong>Add Cost</strong></legend>
+          <fieldset class="fields">
+            
+            <label> CostDescription </label> <select name="CostDescription">
+            	<option value="1" selected>CustomerCosts
+              </option>
+              <option value="2">HouseCosts</option>
+              <option value="3">InvestorCosts</option>
+              <option value="4">EmployeeCosts</option>
+                </select>
+            
+      </fieldset>
+          <input class="btn" type="submit" id="addPerson" value="Add Person">
+          <input class="btn" type="button" value="cancel" onClick="browseCost()">
+	</form> 
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateCosts">
+        <legend><strong>Update Cost</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="personID" id="updateCostID" value="1">
+          <label> ID: </label> 1
+            <label> Cost Description </label> <select name="CostDescription">
+            	<option value="0">&nbsp;</option>
+              <option value="1" selected>CustomerCosts
+              </option>
+              <option value="2">HouseCosts</option>
+              <option value="3">InvestorCosts</option>
+              <option value="4">EmployeeCosts</option>
+                </select>
+            
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveCost" value="Save Update Investor">
+          <input class="btn" type="button" value="cancel" onClick="browseCost()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteCost">
+      <legend><strong>Delete Costs</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="CostID" id="deleteCostID" value="1">
+          <label><strong>ID:</strong></label> 1
+            <label> <strong>Name</strong> </label> CustomerCosts
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteCost" value="Delete Cost">
+          <input class="btn" type="button" value="cancel" onClick="browseCost()">
+  </form> 
+</div><!-- delete -->
+
+</body>
+</html>
